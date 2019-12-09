@@ -85,7 +85,7 @@ public class EmployeeService {
      * @return
      *
      */
-    @Cacheable(value = {"emp"},keyGenerator = "myKeyGenerator",condition = "#a0>1",unless = "#a0==2")
+    @Cacheable(value = {"emp"}/*,keyGenerator = "myKeyGenerator",condition = "#a0>1",unless = "#a0==2"*/)
     public Employee getEmp(Integer id){
         System.out.println("查询"+id+"号员工");
         Employee emp = employeeMapper.getEmpById(id);
@@ -114,12 +114,12 @@ public class EmployeeService {
      *      为什么是没更新前的？【1号员工没有在缓存中更新】
      *
      */
-//    @CachePut(/*value = "emp",*/key = "#result.id")
-//    public Employee updateEmp(Employee employee){
-//        System.out.println("updateEmp:"+employee);
-//        employeeMapper.updateEmp(employee);
-//        return employee;
-//    }
+    @CachePut(value = "emp",key = "#result.id")
+    public Employee updateEmp(Employee employee){
+        System.out.println("updateEmp:"+employee);
+        employeeMapper.updateEmp(employee);
+        return employee;
+    }
 
     /**
      * @CacheEvict：缓存清除
