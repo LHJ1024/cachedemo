@@ -114,12 +114,12 @@ public class EmployeeService {
      *      为什么是没更新前的？【1号员工没有在缓存中更新】
      *
      */
-    @CachePut(/*value = "emp",*/key = "#result.id")
-    public Employee updateEmp(Employee employee){
-        System.out.println("updateEmp:"+employee);
-        employeeMapper.updateEmp(employee);
-        return employee;
-    }
+//    @CachePut(/*value = "emp",*/key = "#result.id")
+//    public Employee updateEmp(Employee employee){
+//        System.out.println("updateEmp:"+employee);
+//        employeeMapper.updateEmp(employee);
+//        return employee;
+//    }
 
     /**
      * @CacheEvict：缓存清除
@@ -133,27 +133,27 @@ public class EmployeeService {
      *
      *
      */
-    @CacheEvict(value="emp",beforeInvocation = true/*key = "#id",*/)
-    public void deleteEmp(Integer id){
-        System.out.println("deleteEmp:"+id);
-        //employeeMapper.deleteEmpById(id);
-        int i = 10/0;
-    }
-
-    // @Caching 定义复杂的缓存规则
-    @Caching(
-         cacheable = {
-             @Cacheable(/*value="emp",*/key = "#lastName")
-         },
-         put = {
-             @CachePut(/*value="emp",*/key = "#result.id"),
-             @CachePut(/*value="emp",*/key = "#result.email")
-         }
-    )
-    public Employee getEmpByLastName(String lastName){
-        return employeeMapper.getEmpByLastName(lastName);
-    }
-
+//    @CacheEvict(value="emp",beforeInvocation = true/*key = "#id",*/)
+//    public void deleteEmp(Integer id){
+//        System.out.println("deleteEmp:"+id);
+//        //employeeMapper.deleteEmpById(id);
+//        int i = 10/0;
+//    }
+//
+//    // @Caching 定义复杂的缓存规则
+//    @Caching(
+//         cacheable = {
+//             @Cacheable(/*value="emp",*/key = "#lastName")
+//         },
+//         put = {
+//             @CachePut(/*value="emp",*/key = "#result.id"),
+//             @CachePut(/*value="emp",*/key = "#result.email")
+//         }
+//    )
+//    public Employee getEmpByLastName(String lastName){
+//        return employeeMapper.getEmpByLastName(lastName);
+//    }
+//
 
 
 

@@ -19,7 +19,7 @@ public class CachedemoApplicationTests {
     public void contextLoads() {
         Employee getbyid
 //                = new Employee();
-                = employeeMapper.getEmpById(2);
+                = employeeMapper.getEmpById(1);
         System.out.print(getbyid);
 //        getbyid.setLastName("wayne");
 //        employeeMapper.insertEmployee(getbyid);

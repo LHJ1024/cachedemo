@@ -20,23 +20,23 @@ public class EmployeeController {
         Employee employee = employeeService.getEmp(id);
         return employee;
     }
-
-    @GetMapping("/emp")
-    public Employee update(Employee employee){
-        Employee emp = employeeService.updateEmp(employee);
-
-        return emp;
-    }
-
-    @GetMapping("/delemp")
-    public String deleteEmp(Integer id){
-        employeeService.deleteEmp(id);
-        return "success";
-    }
-
-    @GetMapping("/emp/lastname/{lastName}")
-    public Employee getEmpByLastName(@PathVariable("lastName") String lastName){
-       return employeeService.getEmpByLastName(lastName);
-    }
+//
+//    @GetMapping("/emp")
+//    public Employee update(Employee employee){
+//        Employee emp = employeeService.updateEmp(employee);
+//
+//        return emp;
+//    }
+//
+//    @GetMapping("/delemp")
+//    public String deleteEmp(Integer id){
+//        employeeService.deleteEmp(id);
+//        return "success";
+//    }
+//
+//    @GetMapping("/emp/lastname/{lastName}")
+//    public Employee getEmpByLastName(@PathVariable("lastName") String lastName){
+//       return employeeService.getEmpByLastName(lastName);
+//    }
 
 }

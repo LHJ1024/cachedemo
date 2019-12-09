@@ -8,9 +8,7 @@ import org.apache.ibatis.annotations.*;
 public interface EmployeeMapper {
 
     @Select("SELECT * FROM employee WHERE id = #{id}")
-    public default Employee getEmpById(Integer id) {
-        return null;
-    }
+    public Employee getEmpById(Integer id);
 
     @Update("UPDATE employee SET lastName=#{lastName},email=#{email},gender=#{gender},d_id=#{dId} WHERE id=#{id}")
     public void updateEmp(Employee employee);
