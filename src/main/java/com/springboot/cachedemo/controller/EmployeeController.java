@@ -28,11 +28,11 @@ public class EmployeeController {
         return emp;
     }
 
-//    @GetMapping("/delemp")
-//    public String deleteEmp(Integer id){
-//        employeeService.deleteEmp(id);
-//        return "success";
-//    }
+    @GetMapping("/delemp")
+    public String deleteEmp(Integer id){
+        employeeService.deleteEmp(id);
+        return "success";
+    }
 //
 //    @GetMapping("/emp/lastname/{lastName}")
 //    public Employee getEmpByLastName(@PathVariable("lastName") String lastName){

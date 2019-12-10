@@ -133,26 +133,26 @@ public class EmployeeService {
      *
      *
      */
-//    @CacheEvict(value="emp",beforeInvocation = true/*key = "#id",*/)
-//    public void deleteEmp(Integer id){
-//        System.out.println("deleteEmp:"+id);
-//        //employeeMapper.deleteEmpById(id);
-//        int i = 10/0;
-//    }
-//
-//    // @Caching 定义复杂的缓存规则
-//    @Caching(
-//         cacheable = {
-//             @Cacheable(/*value="emp",*/key = "#lastName")
-//         },
-//         put = {
-//             @CachePut(/*value="emp",*/key = "#result.id"),
-//             @CachePut(/*value="emp",*/key = "#result.email")
-//         }
-//    )
-//    public Employee getEmpByLastName(String lastName){
-//        return employeeMapper.getEmpByLastName(lastName);
-//    }
+    @CacheEvict(/*value="emp",/*beforeInvocation = true,*/key = "#id")
+    public void deleteEmp(Integer id){
+        System.out.println("deleteEmp:"+id);
+        //employeeMapper.deleteEmpById(id);
+        //int i = 10/0;
+    }
+
+    // @Caching 定义复杂的缓存规则
+    @Caching(
+         cacheable = {
+             @Cacheable(/*value="emp",*/key = "#lastName")
+         },
+         put = {
+             @CachePut(/*value="emp",*/key = "#result.id"),
+             @CachePut(/*value="emp",*/key = "#result.email")
+         }
+    )
+    public Employee getEmpByLastName(String lastName){
+        return employeeMapper.getEmpByLastName(lastName);
+    }
 //
 
 
